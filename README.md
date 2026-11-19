@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project analyses approximately **1 million Uber pickup records in New York City from September 2014** to examine the spatial distribution of pickups, identify geographic demand clusters and forecast hourly pickup activity.
+This project analyses approximately **1 million Uber pickup records in New York City from September 2014** to examine geographic pickup patterns, identify spatial clusters and forecast hourly pickup demand.
 
 The analysis combines exploratory data analysis (EDA), geographic clustering, temporal profiling and time-series forecasting to investigate where and when Uber pickups occur.
 
@@ -14,16 +14,18 @@ The analysis combines exploratory data analysis (EDA), geographic clustering, te
 - Compare K-Means with density-based clustering using DBSCAN.
 - Analyse pickup activity by cluster, hour and date.
 - Forecast hourly pickup demand using multiple time-series models.
-- Evaluate forecasting performance on a chronological holdout period.
+- Evaluate forecasting performance using a chronological holdout period.
+
+---
 
 ## Dataset
 
 - **Dataset:** Uber pickup data, New York City, September 2014.
-- **Source:** Uber NYC pickup dataset.
+- **Source:** [Uber NYC Pickup Data (FiveThirtyEight/Kaggle)](https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city)
 - **Records analysed:** 1,003,491 cleaned pickup records.
 - **Time period:** September 1–30, 2014.
 
-Each record contains:
+The dataset contains pickup timestamps, geographic coordinates and dispatching base identifiers.
 
 | Variable | Description |
 |---|---|
@@ -32,6 +34,10 @@ Each record contains:
 | Lon | Pickup longitude |
 | Base | TLC-licensed dispatching base code |
 
+<text> The original dataset is not included in this repository due to its file size. To execute the notebook, obtain the dataset separately and save it as `uber-data.csv` in the same directory as the notebook.</text>
+
+---
+
 ## Methodology
 
 ### 1. Exploratory Data Analysis (EDA)
@@ -39,6 +45,7 @@ Each record contains:
 The dataset was inspected and cleaned to understand pickup distribution, data quality and temporal patterns.
 
 The analysis includes:
+
 - Data cleaning and validation.
 - Missing and duplicate record checks.
 - Geographic bounding-box filtering.
@@ -87,6 +94,7 @@ The comparison explores the differences between centroid-based clustering and de
 Pickup activity was examined across time to identify patterns in demand.
 
 The analysis includes:
+
 - Hourly pickup distributions.
 - Pickup activity by date.
 - Cluster-level hourly activity.
@@ -120,6 +128,8 @@ Forecasting performance was evaluated using:
 - Mean Absolute Percentage Error (MAPE).
 
 A final validation suite was also implemented to verify data integrity, clustering outputs, chronological split integrity, forecasting outputs and consistency of the analytical pipeline.
+
+---
 
 ## Results
 
@@ -155,6 +165,8 @@ The analytical pipeline passed **30 out of 30 validation checks**, covering:
 - Forecast generation.
 - Forecast metric validation.
 
+---
+
 ## Technologies Used
 
 - **Python**
@@ -166,6 +178,8 @@ The analytical pipeline passed **30 out of 30 validation checks**, covering:
 - **Statsmodels**
 - **Jupyter Notebook**
 
+---
+
 ## Limitations
 
 - The dataset covers only September 2014, limiting the analysis of long-term seasonal patterns.
@@ -176,6 +190,8 @@ The analytical pipeline passed **30 out of 30 validation checks**, covering:
 - No external variables such as weather, public events or traffic conditions were included.
 - Forecasting performance on this holdout period does not establish general performance on other periods.
 
+---
+
 ## Future Improvements
 
 - Extend the analysis to multiple months or years.
@@ -185,23 +201,18 @@ The analytical pipeline passed **30 out of 30 validation checks**, covering:
 - Develop cluster-level forecasting models.
 - Investigate additional forecasting approaches for longer-term demand prediction.
 
+---
+
 ## Project Structure
 
 ```text
 Uber-Trip-Analysis-Project/
 │
 ├── notebook.ipynb
-├── uber-data.csv
 ├── README.md
 └── ...
 ```
 
-## Author
+**Dataset requirement:** `uber-data.csv` must be downloaded separately and placed alongside the notebook before executing the analysis.
 
-**Shashikanth Kumar Sole**
-
-MSc Data Science & Business Analytics  
-University of Warsaw
-
-[GitHub Profile](https://github.com/shashikanthkumar)
-
+---
